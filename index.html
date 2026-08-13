@@ -4,32 +4,67 @@
         <title>Code Cash</title>
         <script>
 
-            const name = 'Jeferson Bezerra'; // string
-            const age = 27; // number
-            const active = false; // boolean
-            const vote = null; // object
-            const contain = undefined; // undefined
-
-            // console.log('Hello World');
-            // window.alert('Olá, mundo cruel!');
+            // const name = window.prompt('Digite seu nome:');
             
-            const test = name;
 
-            console.log(name, typeof name);
-            // console.log(typeof name);
-            console.log(age, typeof age);
-            // console.log(typeof age);
-            console.log(active, typeof active);
-            // console.log(typeof active);
-            console.log(vote, typeof vote);
-            // console.log(typeof vote);
-            console.log(contain, typeof contain);
-            // console.log(typeof contain);
+            // if (name) {
+            //     window.alert(`Olá, ${name}! Seja bem vindo ao Code Cash.`);
+            // } else  if (name === '') {
+            //     window.alert(`Olá! Seja bem vindo ao Code Cash.`);
+            // } else {
+            //     window.alert(`Operação cancelada`);
+            // }
 
+    //         if (age >= 60) {
+    //     console.log('Você está na melhor idade.');
+    //   } else if (age >= 40) {
+    //     console.log('Você está na flor da idade.');
+    //   } else if (age >= 21) {
+    //     console.log('Você está na idade dos problemas.');
+    //   } else if (age >= 18) {
+    //     console.log('Te prepare que la vem bomba!');
+    //   } else if (age >= 14) {
+    //     console.log('Nem tudo é sobre você, querido!');
+    //   } else if (age >= 8) {
+    //     console.log('Calma, criança!');
+    //   } else {
+    //     console.log('Vida feliz!');
+    //   }
 
-            console.log('Meu nome é ' + name + ' e tenho ' + age + ' anos.');
-            console.log(`Meu nome é ${name} e tenho ${age} anos.`);
-            
+    //   const temp = 10;
+
+    //   if (temp < 5) {
+    //     console.log('Frio intenso.');
+    //   } else if (temp <= 15) {
+    //     console.log('Clima frio.');
+    //   } else if (temp < 25) {
+    //     console.log('Clima agradável.');
+    //   } else if (temp <= 30) {
+    //     console.log('Clima quente.');
+    //   } else {
+    //     console.log('Calor intenso.');
+    //   }
+      
+      /*
+        Verifique uma lista de número de 1 a 100;
+
+        - se o número for divisivel por 2, imprima "n - MAR"
+        - se o número for divisível por 5, imprima "n - MENINO"
+        - se divisível por 2 e por 5, imprima "n - MARMENINO"
+      */
+
+      for (let i = 1; i <= 100; i = i + 1) {
+        if (i % 2 === 0) {
+          if (i % 5 === 0) {
+            console.log(`${i} - MARMENINO`);
+          } else {
+            console.log(`${i} - MAR`);
+          }
+        } else if (i % 5 === 0) {
+          console.log(`${i} - MENINO`);
+        }
+      }
+
 
         </script>
     </head>
