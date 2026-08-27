@@ -1,71 +1,106 @@
 <html>
-    <head>
-        <meta charsert ='uft-8' />
-        <title>Code Cash</title>
-        <script>
+  <head>
+    <meta charset='utf-8' />
+    <title>Code Cash</title>
+    <script>
 
-            // const name = window.prompt('Digite seu nome:');
-            
+      let repeat = true;
+          
+      function greet() {
+        const name = prompt('Digite seu nome:');
 
-            // if (name) {
-            //     window.alert(`Olá, ${name}! Seja bem vindo ao Code Cash.`);
-            // } else  if (name === '') {
-            //     window.alert(`Olá! Seja bem vindo ao Code Cash.`);
-            // } else {
-            //     window.alert(`Operação cancelada`);
-            // }
+        if (name === '') {
+          return alert(
+            'Olá! Seja bem vindo ao Code Cash.'
+          ); 
+        } else if (name === null) {
+          repeat = false;
+          return alert ('Operação cancelada.');
+        } else if (!isNaN(name)) {
+          alert('Digite um valor válido.');
+          return greet();
+        }
+        
+        alert(`Olá, ${name}! Seja bem vindo ao Code Cash.`);
+      }
 
-    //         if (age >= 60) {
-    //     console.log('Você está na melhor idade.');
-    //   } else if (age >= 40) {
-    //     console.log('Você está na flor da idade.');
-    //   } else if (age >= 21) {
-    //     console.log('Você está na idade dos problemas.');
-    //   } else if (age >= 18) {
-    //     console.log('Te prepare que la vem bomba!');
-    //   } else if (age >= 14) {
-    //     console.log('Nem tudo é sobre você, querido!');
-    //   } else if (age >= 8) {
-    //     console.log('Calma, criança!');
-    //   } else {
-    //     console.log('Vida feliz!');
-    //   }
+      greet();
 
-    //   const temp = 10;
+      let balance = 0;
 
-    //   if (temp < 5) {
-    //     console.log('Frio intenso.');
-    //   } else if (temp <= 15) {
-    //     console.log('Clima frio.');
-    //   } else if (temp < 25) {
-    //     console.log('Clima agradável.');
-    //   } else if (temp <= 30) {
-    //     console.log('Clima quente.');
-    //   } else {
-    //     console.log('Calor intenso.');
-    //   }
-      
-      /*
-        Verifique uma lista de número de 1 a 100;
+      const operations = {
+        check: () => {
+          window.alert(`Saldo atual: R$ ${balance}`);
+        },
+        deposit: () => {
+          const deposit = prompt('Valor do depósito');
 
-        - se o número for divisivel por 2, imprima "n - MAR"
-        - se o número for divisível por 5, imprima "n - MENINO"
-        - se divisível por 2 e por 5, imprima "n - MARMENINO"
-      */
-
-      for (let i = 1; i <= 100; i = i + 1) {
-        if (i % 2 === 0) {
-          if (i % 5 === 0) {
-            console.log(`${i} - MARMENINO`);
-          } else {
-            console.log(`${i} - MAR`);
+          if (deposit === null) {
+            window.alert('Operação cancelada.');
+            return;
           }
-        } else if (i % 5 === 0) {
-          console.log(`${i} - MENINO`);
+
+          if (Number(deposit) < 1 || isNaN(deposit)) {
+            window.alert('Valor inválido.');
+            return operations.deposit();
+          }
+
+          balance = balance + Number(deposit);
+          window.alert(`Saldo atual: R$ ${balance}`);
+        },
+        cashOut: () => {
+          const cashout = prompt('Valor do saque');
+
+          if (cashout === null) {
+            window.alert('Operação cancelada.');
+            return;
+          }
+
+          if (Number(cashout) < 1 || isNaN(cashout)) {
+            window.alert('Valor inválido.');
+            return operations.cashout();
+          }
+
+          balance = balance - Number(cashout);
+          window.alert(`Saldo atual: R$ ${balance}`);
+        },
+        exit: () => {
+          window.alert('Foi um prazer atendê-lo. Até logo!');
+          repeat = false;
+        },
+        invalid: () => {
+          window.alert('Operação inválida.');
         }
       }
 
+      while (repeat) {
+        const operation = Number(prompt(`
+          Escolha uma operação:
+  
+          1. Consultar
+          2. Depositar
+          3. Sacar
+          4. Sair
+        `));
+  
+        switch (operation) {
+          case 1:
+            operations.check();
+            break;
+          case 2:
+            operations.deposit();
+            break;
+          case 3:
+            operations.cashOut();
+            break;
+          case 4:
+            operations.exit();
+            break;
+          default:
+            operations.invalid();
+        }
+      }
 
-        </script>
-    </head>
+    </script>
+  </head>
 </html>
